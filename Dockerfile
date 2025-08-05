@@ -2,6 +2,7 @@ FROM rasa/rasa:3.6.10
 
 # Copy all project files
 COPY . /app
+COPY models/giftmodel.gz /app/models/
 WORKDIR /app
 
 # Optional: install any extra dependencies yes
