@@ -4,7 +4,7 @@ FROM rasa/rasa:3.6.10
 COPY . /app
 WORKDIR /app
 
-# Optional: install any extra dependencies
+# Optional: install any extra dependencies yes
 RUN if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
 
 EXPOSE 5005
