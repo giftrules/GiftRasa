@@ -1,22 +1,17 @@
 # Use a slim Python 3.9 image
 FROM python:3.9-slim
 
+# Set working directory
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
-    git \
-    supervisor \
-    && rm -rf /var/lib/apt/lists/*
+# Copy all files to the container
+COPY . .
 
-COPY . /app
+# Install extra dependencies if needed (e.g., for actions.py)
+# RUN pip install -r requirements.txt
 
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# Train model (optional if you're uploading a pre-trained model)
+# RUN rasa train
 
-EXPOSE 5005 1200 5055
-
-COPY entrypoint.sh ./entrypoint.sh
-RUN chmod +x entrypoint.sh
-
-ENTRYPOINT ["./entrypoint.sh"]
+# Default command to start the Rasa server using your model
+CMD ["run", "--enable-api", "--model", "models/giftmodel.gz", "--port", "5005", "--cors", "*"]
