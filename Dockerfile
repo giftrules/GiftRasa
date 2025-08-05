@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Optional: install Python dependencies if needed
-# RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Train the model inside the container
 RUN rasa train
@@ -17,4 +17,4 @@ RUN rasa train
 EXPOSE 5005
 
 # Start the Rasa server with API and CORS enabled
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--debug"]
+CMD ["run", "--enable-api", "--cors", "*", "--debug"]
