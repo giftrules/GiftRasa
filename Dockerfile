@@ -1,17 +1,12 @@
-# Use a slim Python 3.9 image
-FROM python:3.9-slim
+FROM rasa/rasa:3.6.10
 
-# Set working directory
+# Copy all project files
+COPY . /app
 WORKDIR /app
 
-# Copy all files to the container
-COPY . .
-
-# Install extra dependencies if needed (e.g., for actions.py)
+# Optional: install any extra dependencies
 # RUN pip install -r requirements.txt
 
-# Train model (optional if you're uploading a pre-trained model)
-# RUN rasa train
+EXPOSE 5005
 
-# Default command to start the Rasa server using your model
-CMD ["run", "--enable-api", "--model", "models/giftmodel.gz", "--port", "5005", "--cors", "*"]
+CMD ["run", "--enable-api", "--model", "models/giftmodel.gz", "--cors", "*", "--debug"]
