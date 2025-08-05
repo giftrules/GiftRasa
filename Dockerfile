@@ -5,7 +5,7 @@ COPY . /app
 WORKDIR /app
 
 # Optional: install any extra dependencies yes
-RUN if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
+#RUN if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
 
 EXPOSE 5005
 
