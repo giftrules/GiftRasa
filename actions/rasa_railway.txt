@@ -1,0 +1,6 @@
+git init
+git remote add origin https://github.com/giftrules/GiftRasa.git
+git add .
+git commit -m "Initial commit - Rasa chatbot"
+git branch -M main
+git push -u origin main
