@@ -2,7 +2,8 @@ FROM rasa/rasa:3.6.10
 
 # Copy all project files
 COPY . /app
-COPY models/giftmodel.gz /app/models/
+
+COPY models/giftmodel.tar.gz /app/models/
 WORKDIR /app
 
 # Optional: install any extra dependencies yes
@@ -10,4 +11,4 @@ WORKDIR /app
 
 EXPOSE 5005
 
-CMD ["run", "--enable-api", "--model", "models/giftmodel.gz", "--cors", "*", "--debug"]
+CMD ["run", "--enable-api", "--model", "models/giftmodel.tar.gz", "--cors", "*", "--debug"]
