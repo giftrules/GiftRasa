@@ -1,14 +1,20 @@
+# Use the official Rasa image
 FROM rasa/rasa:3.6.10
+
+# Set working directory
+WORKDIR /app
 
 # Copy all project files
 COPY . /app
 
-COPY models/giftmodel.tar.gz /app/models/
-WORKDIR /app
+# Optional: install Python dependencies if needed
+# RUN pip install --no-cache-dir -r requirements.txt
 
-# Optional: install any extra dependencies yes
-#RUN if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
+# Train the model inside the container
+RUN rasa train
 
+# Expose Rasa API port
 EXPOSE 5005
 
-CMD ["run", "--enable-api", "--model", "models/giftmodel.tar.gz", "--cors", "*", "--debug"]
+# Start the Rasa server with API and CORS enabled
+CMD ["rasa", "run", "--enable-api", "--cors", "*", "--debug"]
