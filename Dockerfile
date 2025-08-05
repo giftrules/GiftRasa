@@ -9,4 +9,4 @@ WORKDIR /app
 
 EXPOSE 5005
 
-CMD ["rasa", "run", "--enable-api", "--model", "models/giftmodel.gz", "--cors", "*", "--debug"]
+CMD ["run", "--enable-api", "--model", "models/giftmodel.gz", "--cors", "*", "--debug"]
