@@ -1,2 +1,0 @@
-pip install --no-cache-dir rasa
-rasa init --no-prompt
