@@ -5,7 +5,7 @@ COPY . /app
 WORKDIR /app
 
 # Optional: install any extra dependencies
-# RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 EXPOSE 5005
 
