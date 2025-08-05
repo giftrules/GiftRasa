@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Optional: install Python dependencies if needed
-RUN pip install --no-cache-dir -r requirements.txt
+#RUN pip install --no-cache-dir -r requirements.txt
 
 # Train the model inside the container
 RUN rasa train
