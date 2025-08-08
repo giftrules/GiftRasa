@@ -875,6 +875,7 @@ nlu:
     - Can you remove [safes](product_name) from my shopping cart?
     - Can you take [external hardrive](product_name) out of my cart?
 - intent: clear_cart
+  examples: |
     - clear my cart
     - empty the cart
     - remove everything in my cart
